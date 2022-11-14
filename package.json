@@ -4,11 +4,18 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "grpc": "protoc --proto_path=./protos --js_out=import_style=commonjs,binary:src/lib/proto --grpc-web_out=import_style=typescript,mode=grpcwebtext:src/lib/proto ./protos/*.proto"
   },
   "dependencies": {
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "core-js": "^3.20.0",
+    "file-saver": "^2.0.5",
+    "google-protobuf": "^3.21.2",
+    "grpc-web": "^1.4.1",
+    "jwt-decode": "^3.1.2",
+    "protoc-gen-ts": "^0.8.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-router": "~5.0.0",

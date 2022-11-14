@@ -1,0 +1,55 @@
+.container {
+  gap: 70px;
+  flex-direction: column;
+  height: 100vh;
+  display: flex;
+  max-width: 1400px;
+  padding: 0 15px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.titleName {
+  color: white;
+}
+.btnPos {
+  margin-top: 18px;
+}
+.mainBtn {
+  cursor: pointer;
+  display: block;
+  border: none;
+  font-size: 20px;
+  color: rgb(34, 35, 40);
+  font-weight: bold;
+  width: 335px;
+  height: 66px;
+  border-radius: 5px;
+  box-shadow: 0px 7px 0px 0px rgba(144, 117, 87, 0.333);
+  background-color: rgb(241, 193, 0);
+}
+.mainBtn:hover {
+  transition: all 200ms ease;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.inputWrapper {
+  position: relative;
+  border: solid white;
+  width: 335px;
+  border-radius: 5px;
+  box-shadow: 0px 7px 0px 0px rgba(144, 117, 87, 0.333);
+}
+.inputWrapper > input {
+  font-size: 18px;
+  border: none;
+  padding: 20px;
+  width: 100%;
+}
+.error {
+  position: absolute;
+  color: red;
+  bottom: -2px;
+  left: 20px;
+}
