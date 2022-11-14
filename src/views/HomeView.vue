@@ -12,7 +12,7 @@
           oninput="validity.valid||(value='');"
           placeholder="введите сумму чаевых"
         />
-        <span class="error" v-if="error">введите сумму</span>
+        <span class="error" v-if="error">{{ warningMessage }}</span>
       </div>
       <button class="mainBtn btnPos" @click="paymentHendler">
         отправить чаевые
@@ -29,6 +29,7 @@ import {
 import { acquiringClient } from "../lib/client";
 import { ref } from "vue";
 let error = ref(false);
+let warningMessage = ref("");
 let data = ref();
 let donutSum = ref();
 const params = {
@@ -64,8 +65,10 @@ function paymentHendler() {
     .createPayment(request, null)
     .then((result) => {
       window.location.href = result.toObject().formUrl;
+      error.value = false;
     })
     .catch((e) => {
+      warningMessage.value = e.message;
       error.value = true;
     });
 }
