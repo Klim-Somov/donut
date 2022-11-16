@@ -45,7 +45,7 @@ const params = {
 
 const loadData = () => {
   const request = new GetInfoRequest()
-    .setWorkerId(params.workderId)
+    .setWorkerId(params.workerId)
     .setGroupServiceId(params.groupServiceId)
     .setHash(params.hash);
 
