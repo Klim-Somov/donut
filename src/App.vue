@@ -16,14 +16,16 @@
   scroll-behavior: smooth;
 }
 body {
-  background-image: url("https://paytaxi.ru/static/images/one-bg.28df34520efb.jpg");
+  background-image: url(./assets/images/one-bg.jpg);
 }
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
 }
 </style>

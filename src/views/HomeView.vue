@@ -1,5 +1,6 @@
+
 <template>
-  <div class="container">
+  <div v-if="!loadingError" class="container">
     <div>
       <h1 class="titleName">{{ data?.workerName }}</h1>
     </div>
@@ -19,16 +20,20 @@
       </button>
     </div>
   </div>
+  <loadingError v-else :loadingError="loadingError" />
 </template>
 
 <script lang="ts" setup>
+import LoadingError from "../components/LoadingError.vue"
 import {
   GetInfoRequest,
   CreatePaymentRequest,
 } from "../lib/proto/acquiring_donut_pb";
 import { acquiringClient } from "../lib/client";
 import { ref } from "vue";
+
 let error = ref(false);
+let loadingError = ref();
 let warningMessage = ref("");
 let data = ref();
 let donutSum = ref();
@@ -40,7 +45,7 @@ const params = {
 
 const loadData = () => {
   const request = new GetInfoRequest()
-    .setWorkerId(params.workerId)
+    .setWorkerId(params.workderId)
     .setGroupServiceId(params.groupServiceId)
     .setHash(params.hash);
 
@@ -50,7 +55,7 @@ const loadData = () => {
       data.value = result.toObject();
     })
     .catch((e) => {
-      console.log(e);
+      loadingError.value = e.message;
     });
 };
 
